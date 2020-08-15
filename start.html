@@ -1,0 +1,37 @@
+<html>
+    <head>
+        <title>RGB</title>
+    </head>
+    <body>
+        <input type="range" min="0" max="255" value="0" class="slider" name="red" id="red">
+        <input type="range" min="0" max="255" value="0" class="slider" name="green" id="green">
+        <input type="range" min="0" max="255" value="0" class="slider" name="blue" id="blue">
+        <script>
+            var red = document.getElementById("red");
+            var green = document.getElementById("green");
+            var blue = document.getElementById("blue");
+
+            red.oninput = function () {
+                sendData();
+            }
+
+            green.oninput = function () {
+                sendData();
+            }
+
+            blue.oninput = function () {
+                sendData();
+            }
+
+            function sendData() {
+                var data = "red=" + red.value + "&green=" + green.value + "&blue=" + blue.value;
+                var request = new XMLHttpRequest();
+                request.open('POST', '', true);
+                request.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+                request.send(data);
+                console.log(data);
+
+            }
+        </script>
+    </body>
+</html>
