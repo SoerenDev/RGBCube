@@ -1,36 +1,146 @@
 <html>
-    <head>
-        <title>RGB</title>
-    </head>
-    <body>
-        <input type="range" min="0" max="255" value="0" class="slider" name="red" id="red">
-        <input type="range" min="0" max="255" value="0" class="slider" name="green" id="green">
-        <input type="range" min="0" max="255" value="0" class="slider" name="blue" id="blue">
-        <script>
-            var red = document.getElementById("red");
-            var green = document.getElementById("green");
-            var blue = document.getElementById("blue");
 
-            red.oninput = function () {
-                sendData();
-            }
+<head>
+    <title>RGB</title>
+    <style>
+        .center {
+            margin: auto;
+            width: 60%;
+            padding: 10px;
+        }
 
-            green.oninput = function () {
-                sendData();
-            }
+        #red {
+            margin-top: 5%;
+            display: block;
+            width: 100%;
+            -webkit-appearance: none;
+            width: 100%;
+            height: 15px;
+            border-radius: 5px;
+            background: #d3d3d3;
+            outline: none;
+            opacity: 0.7;
+            -webkit-transition: .2s;
+            transition: opacity .2s;
+        }
 
-            blue.oninput = function () {
-                sendData();
-            }
+        #red::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            background: #c93541;
+            cursor: pointer;
+        }
 
-            function sendData() {
-                var data = "red=" + red.value + "&green=" + green.value + "&blue=" + blue.value;
-                var request = new XMLHttpRequest();
-                request.open('POST', '', true);
-                request.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-                request.send(data);
-                console.log(data);
-            }
-        </script>
-    </body>
+        #red::-moz-range-thumb {
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            background: #c93541;
+            cursor: pointer;
+        }
+
+
+        #green {
+            margin-top: 5%;
+            display: block;
+            width: 100%;
+            -webkit-appearance: none;
+            width: 100%;
+            height: 15px;
+            border-radius: 5px;
+            background: #d3d3d3;
+            outline: none;
+            opacity: 0.7;
+            -webkit-transition: .2s;
+            transition: opacity .2s;
+        }
+
+        #green::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            background: #4CAF50;
+            cursor: pointer;
+        }
+
+        #green::-moz-range-thumb {
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            background: #4CAF50;
+            cursor: pointer;
+        }
+
+        #blue {
+            margin-top: 5%;
+            display: block;
+            width: 100%;
+            -webkit-appearance: none;
+            width: 100%;
+            height: 15px;
+            border-radius: 5px;
+            background: #d3d3d3;
+            outline: none;
+            opacity: 0.7;
+            -webkit-transition: .2s;
+            transition: opacity .2s;
+        }
+
+        #blue::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            background: #322fdb;
+            cursor: pointer;
+        }
+
+        #blue::-moz-range-thumb {
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            background: #322fdb;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="range" min="0" max="255" value="0" class="slider" name="red" id="red">
+    <input type="range" min="0" max="255" value="0" class="slider" name="green" id="green">
+    <input type="range" min="0" max="255" value="0" class="slider" name="blue" id="blue">
+    <script>
+        var red = document.getElementById("red");
+        var green = document.getElementById("green");
+        var blue = document.getElementById("blue");
+
+        red.oninput = function () {
+            sendData();
+        }
+
+        green.oninput = function () {
+            sendData();
+        }
+
+        blue.oninput = function () {
+            sendData();
+        }
+
+        function sendData() {
+            var data = "red=" + red.value + "&green=" + green.value + "&blue=" + blue.value;
+            var request = new XMLHttpRequest();
+            request.open('POST', '', true);
+            request.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+            request.send(data);
+            console.log(data);
+        }
+    </script>
+</body>
+
 </html>
